@@ -1,0 +1,84 @@
+/* Color palette */
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css?family=Inconsolata|Pacifico");
+.hidden {
+  display: none; }
+
+input:focus {
+  outline: none; }
+
+.header-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background-color: #E1BC29; }
+  .header-banner div {
+    font-family: 'Pacifico', cursive;
+    color: #FDFFFC;
+    width: calc(50% - 48px);
+    display: inline-block; }
+    .header-banner div.title {
+      font-size: 33px;
+      padding: 7px 24px; }
+    .header-banner div.subtitle {
+      font-size: 20px;
+      text-align: right;
+      vertical-align: super;
+      padding: 0 24px; }
+
+.main-content {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px; }
+  .main-content input.user-input-textfield {
+    width: calc(100% - 124px);
+    font-size: 24px;
+    padding: 6px 12px;
+    margin-bottom: 24px;
+    border: none;
+    border-bottom: 1px solid #E1BC29; }
+  .main-content button.submit-button {
+    width: 80px;
+    height: 41px;
+    background-color: #E1BC29;
+    color: #FDFFFC;
+    border: none;
+    border-radius: 6px;
+    vertical-align: top;
+    margin-left: 20px;
+    font-size: 14px;
+    letter-spacing: 1px; }
+  .main-content .parsed-output-label {
+    position: fixed;
+    top: 156px;
+    left: 48px;
+    padding: 0px 12px;
+    color: #E1BC29;
+    background-color: #FFFFFF;
+    z-index: 1;
+    letter-spacing: 2px; }
+  .main-content .parsed-output-container {
+    position: fixed;
+    top: 164px;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    border: 2px solid #E1BC29;
+    border-radius: 6px;
+    overflow: auto; }
+    .main-content .parsed-output-container .identity-string {
+      padding: 12px 24px; }
+
+#json-pretty {
+  font-family: 'Inconsolata', monospace;
+  color: #000807;
+  white-space: pre-wrap; }
+  #json-pretty span.json-key {
+    color: #FF8484; }
+  #json-pretty span.json-string {
+    color: #8B5FBF; }
