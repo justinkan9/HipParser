@@ -84,31 +84,43 @@ class MainParserContent extends Component {
 		}
 	}
 
+	parseMentions(str) {
+		const mentionPattern = /@[a-z0-9_-]+/gi;
+        var mentionHits = str.match(mentionPattern);
+        if(mentionHits) {
+            mentionHits = mentionHits.map((item) => {
+                return item.substring(1);
+            });
+        } else {
+            mentionHits = [];
+        }
+		return mentionHits;
+	}
+
+	parseEmoticons(str) {
+        const emoticonPattern = /\(([a-z0-9]{1,15})\)/gi;
+        var emoticonHits = str.match(emoticonPattern);
+        if(emoticonHits) {
+            emoticonHits = emoticonHits.map((item) => {
+                return item.substring(1, item.length - 1);
+            });
+        } else {
+            emoticonHits = [];
+        }
+		return emoticonHits;
+	}
+
+	parseLinks(str) {
+		const linkPattern = /((http[s]?):\/\/)[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/gi;
+        var linkHits = str.match(linkPattern);
+		return linkHits;
+	}
+
 	submitForParsing() {
 		const str = this.state.inputText;
-
-		const mentionPattern = /@[a-z0-9_-]+/gi;
-		var mentionHits = str.match(mentionPattern);
-		if(mentionHits) {
-			mentionHits = mentionHits.map((item) => {
-				return item.substring(1);
-			});
-		} else {
-			mentionHits = [];
-		}
-
-		const emoticonPattern = /\(([a-z0-9]{1,15})\)/gi;
-		var emoticonHits = str.match(emoticonPattern);
-		if(emoticonHits) {
-			emoticonHits = emoticonHits.map((item) => {
-				return item.substring(1, item.length - 1);
-			});
-		} else {
-			emoticonHits = [];
-		}
-
-		const linkPattern = /((http[s]?):\/\/)[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/gi;
-		var linkHits = str.match(linkPattern);
+		const mentionHits = this.parseMentions(str);
+		const emoticonHits = this.parseEmoticons(str);
+		const linkHits = this.parseLinks(str);
 		if(linkHits) {
 			linkHits.map((item) => {
 				this.getTitle(item);

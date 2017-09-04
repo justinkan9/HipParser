@@ -15,7 +15,8 @@ $color7: #000807;	// Dark gray
 	display: none;
 }
 
-input:focus {
+input:focus,
+button:focus {
 	outline: none;
 } 
 
