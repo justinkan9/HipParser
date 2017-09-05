@@ -5,6 +5,11 @@
 > npm i; npm start
 
 
+## How to test
+> npm test
+
+
+## Requirements
 The service parses the following data from the input:
 1. mentions - A way to mention a user. Always starts with an '@' and ends when hitting a non-word character.
 2. Emoticons - Considers 'custom' emoticons which are alphanumeric strings, no longer than 15 characters, contained in parenthesis. Assumes that anything matching this format is an emoticon.
